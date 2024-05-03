@@ -11,7 +11,7 @@ export const QUERY: TypedDocumentNode<
   ArticlesQueryVariables
 > = gql`
   query ArticlesQuery {
-    articles {
+    posts {
       id
     }
   }
@@ -25,10 +25,10 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error?.message}</div>
 )
 
-export const Success = ({ articles }: CellSuccessProps<ArticlesQuery>) => {
+export const Success = ({ posts }: CellSuccessProps<ArticlesQuery>) => {
   return (
     <ul>
-      {articles.map((item) => {
+      {posts.map((item) => {
         return <li key={item.id}>{JSON.stringify(item)}</li>
       })}
     </ul>
